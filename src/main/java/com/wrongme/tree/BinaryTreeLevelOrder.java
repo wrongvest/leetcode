@@ -9,9 +9,9 @@ import java.util.Queue;
 
 /**
  * @author wrong
+ * @date 2020年11月8日20:56:03
  * 102. 二叉树的层序遍历
  * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
- * @date 2020年11月8日20:56:03
  */
 public class BinaryTreeLevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
