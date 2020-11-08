@@ -5,19 +5,9 @@ import com.wrongme.basic.TreeNode;
 import java.util.List;
 
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+ * 2020年11月8日17:48:15
+ * 94. 二叉树的中序遍历
+ * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
 class TreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
