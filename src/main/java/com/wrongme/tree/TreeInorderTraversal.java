@@ -13,27 +13,6 @@ import java.util.Stack;
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
 public class TreeInorderTraversal {
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node6 = new TreeNode(6);
-        TreeNode node7 = new TreeNode(7);
-        root.left = node2;
-        root.right = node3;
-        node2.left = node4;
-        node2.right = node5;
-        node5.left = node7;
-        node3.left = node6;
-
-        TreeInorderTraversal binaryTree = new TreeInorderTraversal();
-        binaryTree.inorderTraversal2(root);
-
-    }
-
     // 栈
     public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -54,7 +33,7 @@ public class TreeInorderTraversal {
     public List<Integer> inorderTraversal1(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         inorder(root, res);
-        return null;
+        return res;
     }
 
     private void inorder(TreeNode root, List<Integer> res) {
