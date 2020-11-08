@@ -14,4 +14,11 @@ public class TreePostorderTraversalTest {
         List<Integer> res = treePostorderTraversal.postorderTraversal(BinaryTreeUtils.commonBinaryTree());
         System.out.println(res.stream().map(String::valueOf).collect(Collectors.joining(",")));
     }
+
+    @Test
+    public void postOrderTraversalWithStack() {
+        TreePostorderTraversal treePostorderTraversal = new TreePostorderTraversal();
+        List<Integer> res = treePostorderTraversal.postorderTraversal2(BinaryTreeUtils.commonBinaryTree());
+        System.out.println(res.stream().map(String::valueOf).collect(Collectors.joining(",")));
+    }
 }
