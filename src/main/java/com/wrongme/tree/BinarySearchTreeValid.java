@@ -11,6 +11,12 @@ import java.util.Stack;
  * @date 2020年11月11日21:53:09
  */
 public class BinarySearchTreeValid {
+    /**
+     * 使用中序遍历
+     *
+     * @param root
+     * @return
+     */
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
@@ -18,12 +24,12 @@ public class BinarySearchTreeValid {
         long inorder = Long.MIN_VALUE;
         Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || root != null) {
-            while (root!=null){
+            while (root != null) {
                 stack.push(root);
                 root = root.left;
             }
             TreeNode node = stack.pop();
-            if (inorder> node.val){
+            if (inorder > node.val) {
                 return false;
             }
             inorder = node.val;
@@ -32,4 +38,30 @@ public class BinarySearchTreeValid {
         return true;
     }
 
+    /**
+     * 递归
+     */
+    public boolean isValidBST2(TreeNode root) {
+        return helper(root, null, null);
+    }
+
+    private boolean helper(TreeNode root, Integer lower, Integer upper) {
+        if (root == null) {
+            return true;
+        }
+        int val = root.val;
+        if (lower != null && val <= lower) {
+            return false;
+        }
+        if (upper != null && val >= upper) {
+            return false;
+        }
+        if (!helper(root.left,lower,val)){
+            return false;
+        }
+        if (!helper(root.right,val,upper)){
+            return false;
+        }
+        return true;
+    }
 }
