@@ -82,11 +82,11 @@ public class BinaryTreeUtils {
 
     /**
      * 只有右子树
-     * 1
-     * \
-     * 2
-     * \
-     * 3
+     *     1
+     *    \
+     *    2
+     *  \
+     *  3
      *
      * @return
      */
@@ -98,4 +98,31 @@ public class BinaryTreeUtils {
         node2.right = node3;
         return root;
     }
+
+    /**
+     * BFS 二叉搜索树
+     *
+     * @return
+     */
+    public static TreeNode binarySerachTree() {
+        TreeNode root = new TreeNode(50);
+        TreeNode node2 = new TreeNode(25);
+        TreeNode node3 = new TreeNode(75);
+        TreeNode node4 = new TreeNode(15);
+        TreeNode node5 = new TreeNode(40);
+        TreeNode node6 = new TreeNode(65);
+        TreeNode node7 = new TreeNode(80);
+        TreeNode node8 = new TreeNode(30);
+        TreeNode node9 = new TreeNode(90);
+        root.left = node2;
+        root.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        node3.left = node6;
+        node3.right = node7;
+        node5.left = node8;
+        node7.right = node9;
+        return root;
+    }
+
 }

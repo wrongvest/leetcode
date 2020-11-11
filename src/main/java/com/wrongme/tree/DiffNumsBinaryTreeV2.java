@@ -36,14 +36,12 @@ public class DiffNumsBinaryTreeV2 {
             List<TreeNode> rightTreeList = generateTrees(i+1,end);
             // 从左子树集合中选出一棵左子树，从右子树集合中选出一棵右子树，拼接到根节点上
             int finalI = i;
-            leftTreeList.forEach(left->{
-                rightTreeList.forEach(right->{
-                    TreeNode curr = new TreeNode(finalI);
-                    curr.left = left;
-                    curr.right =right;
-                    allTrees.add(curr);
-                });
-            });
+            leftTreeList.forEach(left-> rightTreeList.forEach(right->{
+                TreeNode curr = new TreeNode(finalI);
+                curr.left = left;
+                curr.right =right;
+                allTrees.add(curr);
+            }));
 //            for (TreeNode left :leftTreeList) {
 //                for(TreeNode right: rightTreeList){
 //                    TreeNode currTree = new TreeNode(i);
