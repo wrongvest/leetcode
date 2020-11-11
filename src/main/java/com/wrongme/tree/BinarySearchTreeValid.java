@@ -13,7 +13,7 @@ import java.util.Stack;
 public class BinarySearchTreeValid {
     /**
      * 使用中序遍历
-     *
+     * 性质： 二叉搜索树使用 中序遍历 得到的值构成的序列一定是升序的
      * @param root
      * @return
      */
