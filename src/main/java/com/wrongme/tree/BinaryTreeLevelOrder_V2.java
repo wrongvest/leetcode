@@ -8,37 +8,40 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 102. 二叉树的层序遍历
- * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+ * 107. 二叉树的层序遍历 II
+ *
  * @author wrong
- * @date 2020年11月8日20:56:03
+ * @date 2021年2月22日20:45:53
  */
-public class BinaryTreeLevelOrder {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+public class BinaryTreeLevelOrder_V2 {
+
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<>();
         if (root == null) {
             return ret;
         }
         Queue<TreeNode> queue = new LinkedList<>();
-        // 压入队尾
+        // 将根节点插入到队尾
         queue.offer(root);
         while (!queue.isEmpty()) {
             List<Integer> level = new ArrayList<>();
-            int currentLevelSize = queue.size();
-            for (int i = 1; i <= currentLevelSize; ++i) {
-                // 弹出队首
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 level.add(node.val);
-                if (node.left != null) {
-                    queue.offer(node.left);
+                TreeNode left = node.left;
+                TreeNode right = node.right;
+                if (left != null) {
+                    queue.offer(left);
                 }
-                if (node.right != null) {
-                    queue.offer(node.right);
+                if (right != null) {
+                    queue.offer(right);
                 }
             }
-            ret.add(level);
+            // 将当前元素放到第一个位置，后序的元素往后移动
+            ret.add(0,level);
         }
-
         return ret;
     }
+
 }
