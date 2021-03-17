@@ -3,6 +3,7 @@ package com.wrongme.tree;
 import com.wrongme.basic.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -14,6 +15,22 @@ import java.util.Stack;
  * @date 2020年11月8日23:20:45
  */
 public class TreePostorderTraversal {
+
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root!=null){
+                res.add(root.val);
+                stack.push(root.left);
+                root = root.right;
+            }
+            root = stack.pop();
+        }
+
+        Collections.reverse(res);
+        return res;
+    }
 
     public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -54,4 +71,5 @@ public class TreePostorderTraversal {
         postOrder(root.right, res);
         res.add(root.val);
     }
+
 }

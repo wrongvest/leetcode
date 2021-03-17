@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Stack;
 
 /**
-
  * 144. 二叉树的前序遍历
  * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+ *
  * @author WRong
  * @date 2020年11月8日22:53:52
  */
@@ -28,5 +28,20 @@ public class TreePreorderTraversal {
             root = root.right;
         }
         return res;
+    }
+
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                res.add(root.val);
+                stack.push(root.right);
+                root = root.left;
+            }
+            root = stack.pop();
+        }
+        return res;
+
     }
 }

@@ -14,4 +14,11 @@ public class TreePreorderTraversalTest {
         List<Integer> res = treePreorderTraversal.preorderTraversal(BinaryTreeUtils.commonBinaryTree());
         System.out.println(res.stream().map(String::valueOf).collect(Collectors.joining(",")));
     }
+
+    @Test
+    public void preOrderTraversalWithStack2() {
+        TreePreorderTraversal treePreorderTraversal = new TreePreorderTraversal();
+        List<Integer> res = treePreorderTraversal.preorderTraversal2(BinaryTreeUtils.commonBinaryTree());
+        System.out.println(res.stream().map(String::valueOf).collect(Collectors.joining(",")));
+    }
 }
