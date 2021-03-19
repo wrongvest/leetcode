@@ -8,14 +8,15 @@ import java.util.Stack;
 
 public class BinaryTreeSumNumbers {
     public int sumNumbers(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int sum = 0;
-        Stack<TreeNode> stack = new Stack<>();
-        List<Integer> nums = new ArrayList<>();
-        stack.push(root);
-
-        return sum;
+        return helper(root,0);
     }
+
+    public int helper(TreeNode root, int i){
+        if (root == null) return 0;
+        int temp = i * 10 + root.val;
+        if (root.left == null && root.right == null)
+            return temp;
+        return helper(root.left, temp) + helper(root.right, temp);
+    }
+
 }
