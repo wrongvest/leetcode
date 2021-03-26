@@ -125,4 +125,22 @@ public class BinaryTreeUtils {
         return root;
     }
 
+    /**
+     *         4
+     *       \   \
+     *      2     5
+     *    \    \
+     *   null  3
+     * @return
+     */
+   public static TreeNode bfs(){
+       TreeNode root = new TreeNode(4);
+       TreeNode node2 = new TreeNode(2);
+       TreeNode node3 = new TreeNode(5);
+       TreeNode node4 = new TreeNode(3);
+       root.left =node2;
+       root.right = node3;
+       node2.right= node4;
+       return root;
+   }
 }
