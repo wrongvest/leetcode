@@ -2,7 +2,7 @@ package com.wrongme.offer;
 
 /**
  * 剑指 Offer 12. 矩阵中的路径
- *
+ * @date 20210417
  */
 public class MatrixPath {
     public boolean exist(char[][] board, String word) {
