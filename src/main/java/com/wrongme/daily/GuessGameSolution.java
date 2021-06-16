@@ -6,7 +6,7 @@ public class GuessGameSolution extends GuessGame {
         int left = 1, right = n;
         // 循环直至区间左右端点相同
         while (left < right) {
-            int mid = (left + (right - left))>> 2;
+            int mid = left + (right - left)>> 1;
             if (guess(mid) <= 0) {
                 // 答案在区间 [left, mid] 中
                 right = mid;
