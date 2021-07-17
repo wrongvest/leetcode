@@ -1,4 +1,4 @@
-package com.wrongme.offer;
+package com.wrongme.dp;
 
 /**
  * 剑指 Offer 42. 连续子数组的最大和
