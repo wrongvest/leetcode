@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+ * 218. 天际线问题
+ */
 public class GetSkylineSolution {
 
     public List<List<Integer>> getSkyline(int[][] buildings) {
