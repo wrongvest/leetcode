@@ -2,6 +2,9 @@ package com.wrongme.daily;
 
 import java.util.*;
 
+/**
+ * 面试题 10.02. 变位词组
+ */
 public class GroupAnagramsSolution {
 
     public List<List<String>> groupAnagrams1(String[] strs) {
