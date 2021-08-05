@@ -43,17 +43,43 @@ public class GetIntersectionNodeSolution {
         GetIntersectionNodeSolution solution = new GetIntersectionNodeSolution();
         ListNode headA = new ListNode(4);
         headA.next = new ListNode(1);
-        headA.next.next = new ListNode(8);
-        headA.next.next.next = new ListNode(4);
-        headA.next.next.next.next = new ListNode(5);
+        ListNode listNode1 = new ListNode(8);
+        ListNode listNode2 = new ListNode(4);
+        ListNode listNode3 = new ListNode(5);
+        headA.next.next = listNode1;
+        headA.next.next.next = listNode2;
+        headA.next.next.next.next = listNode3;
 
         ListNode headB = new ListNode(5);
         headB.next = new ListNode(6);
         headB.next.next = new ListNode(1);
-        headB.next.next.next = new ListNode(8);
-        headB.next.next.next.next = new ListNode(4);
-        headB.next.next.next.next.next = new ListNode(5);
+        headB.next.next.next = listNode1;
+        headB.next.next.next.next = listNode2;
+        headB.next.next.next.next.next = listNode3;
 
-        solution.getIntersectionNode(headA, headB);
+        solution.getIntersectionNode3(headA, headB);
+    }
+
+    public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+        Stack<ListNode> stackA = new Stack<>();
+        Stack<ListNode> stackB = new Stack<>();
+        while (headA!=null){
+            stackA.push(headA);
+            headA = headA.next;
+
+        }
+        while ( headB !=null){
+            stackB.push(headB);
+            headB = headB.next;
+        }
+        ListNode ans =null;
+        while (!stackA.isEmpty() && !stackB.isEmpty()){
+            ListNode pop = stackA.pop();
+            if (!pop.equals(stackB.pop())){
+                break;
+            }
+            ans = pop;
+        }
+        return ans;
     }
 }
