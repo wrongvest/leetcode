@@ -5,7 +5,7 @@ package com.wrongme.daily.w20220315;
  */
 public class Thursday {
 
-    public int countMaxOrSubsets(int[] nums) {
+    public int countMaxOrSubsets2(int[] nums) {
         int max = 0;
         int n = nums.length;
         // 所有元素做或运算的结果肯定是最大值
@@ -24,20 +24,50 @@ public class Thursday {
             for (int i = 0; i < n; i++) {
                 // 要不要选第i个数呢？
                 // 只需要看最后一位是0不选，最后一位1 选
+                // attention: 与运算 优先于 右移运算
                 if ((mask >> i & 1) == 0) {
                     or |= nums[i];
                 }
             }
-            if (max==or){
+            if (max == or) {
                 ans++;
             }
         }
         return ans;
     }
 
+    int answer = 0;
+
+    public int countMaxOrSubsets(int[] nums) {
+        int max = 0;
+        int n = nums.length;
+        // 所有元素做或运算的结果肯定是最大值
+        for (int num : nums) {
+            max |= num;
+        }
+        dfs(nums, 0, 0, max);
+        return answer;
+    }
+
+    private void dfs(int[] nums, int i, int or, int max) {
+        if (i == nums.length) {
+            if (max == or) {
+                answer++;
+            }
+            return;
+        }
+        // 选择当前元素
+        dfs(nums, i + 1, or | nums[i], max);
+        // 不选当前元素
+        dfs(nums, i + 1, or, max);
+
+    }
+
+
     public static void main(String[] args) {
         Thursday thursday = new Thursday();
-        System.out.println(thursday.countMaxOrSubsets(new int[]{3, 1}));
-        System.out.println(thursday.countMaxOrSubsets(new int[]{2, 2,2}));
+//        System.out.println(thursday.countMaxOrSubsets(new int[]{3, 1}));
+        System.out.println(thursday.countMaxOrSubsets2(new int[]{2, 2, 2}));
+        System.out.println(thursday.countMaxOrSubsets(new int[]{2, 2, 2}));
     }
 }
